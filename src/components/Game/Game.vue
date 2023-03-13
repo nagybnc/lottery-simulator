@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import InfoContainer from './Infocontainer.vue'
+import InfoContainer from './InfoContainer.vue'
 import MatchesContainer from './MatchesContainer.vue'
 import NumbersContainer from './NumbersContainer.vue'
 import Checkbox from './Checkbox.vue';
