@@ -1,5 +1,10 @@
+<script setup>
+import Header from './components/Layout/Header/Header.vue'
+</script>
+
 <template>
-  <div class="text-red-500 font-bold">
-    Hello World
-  </div>
+  <Header />
+  <main>
+    Main
+  </main>
 </template>
