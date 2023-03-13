@@ -1,6 +1,6 @@
 <template>
     <section
-        className="mx-auto mt-6 max-w-3xl rounded-3xl py-4 px-4 shadow-container-shadow sm:mt-12 sm:py-12 sm:px-[78px]">
+        className="mx-4 sm:mx-auto mt-6 max-w-3xl rounded-md sm:rounded-3xl py-4 px-4 shadow-container-shadow sm:mt-12 sm:py-12 sm:px-[78px]">
         <h1 className="mb-8 text-[40px] font-bold leading-[55px] text-dark-blue">
             Result
         </h1>
@@ -24,9 +24,24 @@ import MatchesContainer from './MatchesContainer.vue'
 import NumbersContainer from './NumbersContainer.vue'
 import Checkbox from './Checkbox.vue';
 import Slider from './Slider.vue';
+import { mapGetters } from 'vuex';
 
 export default {
     name: "Game",
-    components: { InfoContainer, MatchesContainer, NumbersContainer, Checkbox, Slider }
+    components: { InfoContainer, MatchesContainer, NumbersContainer, Checkbox, Slider },
+    computed: {
+        ...mapGetters(['getIsRunning']),
+    },
+    watch: {
+        getIsRunning: function (newVal) {
+            if (newVal) {
+                this.timer = setInterval(() => {
+                    this.$store.commit('draw')
+                }, this.$store.getters.getSpeed);
+            } else {
+                clearInterval(this.timer);
+            }
+        }
+    },
 }
 </script>

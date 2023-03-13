@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import { countCommonNumbers, generateRandomNumbers } from "../utils";
 
 export default createStore({
   state() {
@@ -31,6 +32,30 @@ export default createStore({
         state.yourNumbers[newNumber.index] = newNumber.number;
       }
     },
+    draw(state) {
+      const newWinningNumbers = generateRandomNumbers();
+      const newyourNumbers = state.isRandomPlay
+        ? generateRandomNumbers()
+        : state.yourNumbers;
+      const newMatch = countCommonNumbers(newWinningNumbers, newyourNumbers);
+      const newDate = new Date(state.date);
+      newDate.setDate(newDate.getDate() + 7);
+
+      if (newMatch === 5) {
+        state.isRunning = false;
+      }
+
+      if (newMatch >= 2) {
+        const newMatches = {
+          ...state.matches,
+          [newMatch]: state.matches[newMatch] + 1,
+        };
+        state.matches = newMatches;
+      }
+      state.date = newDate;
+      state.ticketNumber = state.ticketNumber + 1;
+      state.winningNumbers = newWinningNumbers;
+    },
   },
   getters: {
     getNumberOfTickets(state) {
@@ -50,6 +75,12 @@ export default createStore({
     },
     getStartStopText(state) {
       return state.isRunning ? "stop" : "start";
+    },
+    getIsRunning(state) {
+      return state.isRunning;
+    },
+    getSpeed(state) {
+      return state.speed;
     },
   },
 });
