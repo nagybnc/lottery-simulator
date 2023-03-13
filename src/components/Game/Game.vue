@@ -4,6 +4,7 @@
         <h1 className="mb-8 text-[40px] font-bold leading-[55px] text-dark-blue">
             Result
         </h1>
+        <InfoContainer />
         <Checkbox />
         <Slider />
         <div className="text-center">
@@ -16,11 +17,12 @@
 </template>
 
 <script>
+import InfoContainer from './Infocontainer.vue'
 import Checkbox from './Checkbox.vue';
 import Slider from './Slider.vue';
 
 export default {
     name: "Game",
-    components: { Checkbox, Slider }
+    components: { InfoContainer, Checkbox, Slider }
 }
 </script>
