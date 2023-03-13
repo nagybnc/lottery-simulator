@@ -4,6 +4,7 @@ export default createStore({
   state() {
     return {
       isRunning: false,
+      isRandomPlay: true,
       speed: 1000,
     };
   },

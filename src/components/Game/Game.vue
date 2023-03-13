@@ -4,6 +4,7 @@
         <h1 className="mb-8 text-[40px] font-bold leading-[55px] text-dark-blue">
             Result
         </h1>
+        <Checkbox />
         <Slider />
         <div className="text-center">
             <button @click="$store.commit('toggleGame')"
@@ -15,10 +16,11 @@
 </template>
 
 <script>
+import Checkbox from './Checkbox.vue';
 import Slider from './Slider.vue';
 
 export default {
     name: "Game",
-    components: { Slider }
+    components: { Checkbox, Slider }
 }
 </script>
