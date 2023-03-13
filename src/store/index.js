@@ -4,6 +4,7 @@ export default createStore({
   state() {
     return {
       isRunning: false,
+      speed: 1000,
     };
   },
   mutations: {

@@ -4,6 +4,7 @@
         <h1 className="mb-8 text-[40px] font-bold leading-[55px] text-dark-blue">
             Result
         </h1>
+        <Slider />
         <div className="text-center">
             <button @click="$store.commit('toggleGame')"
                 className="rounded-md border bg-gray-50 p-2 text-2xl hover:bg-gray-200 uppercase">
@@ -14,7 +15,10 @@
 </template>
 
 <script>
+import Slider from './Slider.vue';
+
 export default {
     name: "Game",
+    components: { Slider }
 }
 </script>

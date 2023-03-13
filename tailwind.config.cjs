@@ -5,6 +5,8 @@ module.exports = {
     extend: {
       colors: {
         "dark-blue": "#020056",
+        "light-greenish-blue": "#A5D9C8",
+        "yellowish-beige": "#F6F0C6",
       },
       boxShadow: {
         "container-shadow": "2px 2px 10px rgba(0, 0, 0, 0.1);",
