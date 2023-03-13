@@ -5,6 +5,8 @@ export default createStore({
     return {
       ticketNumber: 0,
       date: new Date(0),
+      winningNumbers: [1, 9, 34, 68, 90],
+      yourNumbers: [2, 7, 32, 44, 87],
       matches: {
         2: 0,
         3: 0,
@@ -19,6 +21,15 @@ export default createStore({
   mutations: {
     toggleGame(state) {
       state.isRunning = !state.isRunning;
+    },
+    setYourNumbers(state, newNumber) {
+      if (
+        newNumber.number >= 1 &&
+        newNumber.number <= 90 &&
+        !state.yourNumbers.includes(newNumber.number)
+      ) {
+        state.yourNumbers[newNumber.index] = newNumber.number;
+      }
     },
   },
   getters: {

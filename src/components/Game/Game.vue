@@ -6,6 +6,7 @@
         </h1>
         <InfoContainer />
         <MatchesContainer />
+        <NumbersContainer />
         <Checkbox />
         <Slider />
         <div className="text-center">
@@ -20,11 +21,12 @@
 <script>
 import InfoContainer from './Infocontainer.vue'
 import MatchesContainer from './MatchesContainer.vue'
+import NumbersContainer from './NumbersContainer.vue'
 import Checkbox from './Checkbox.vue';
 import Slider from './Slider.vue';
 
 export default {
     name: "Game",
-    components: { InfoContainer, MatchesContainer, Checkbox, Slider }
+    components: { InfoContainer, MatchesContainer, NumbersContainer, Checkbox, Slider }
 }
 </script>
